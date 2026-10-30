@@ -1,0 +1,3 @@
+storeDir: .pnpm-repair-store
+allowBuilds:
+  unrs-resolver: true

@@ -1,0 +1,421 @@
+@import "tailwindcss";
+
+:root {
+    --navy: #0d2238;
+    --navy-soft: #1a3852;
+    --gold: #bd9555;
+    --gold-light: #e4cca0;
+    --paper: #fbf8f1;
+    --ink: #162333;
+    --muted: #64717c;
+}
+
+* {
+    box-sizing: border-box;
+}
+
+html {
+    background: #e7e1d7;
+}
+
+body {
+    margin: 0;
+    color: var(--ink);
+    background:
+        radial-gradient(circle at 15% 12%, rgba(255, 255, 255, 0.65), transparent 28%),
+        radial-gradient(circle at 82% 78%, rgba(189, 149, 85, 0.11), transparent 32%),
+        #e7e1d7;
+    font-family: var(--font-sans), sans-serif;
+    -webkit-font-smoothing: antialiased;
+}
+
+.invitation-shell {
+    min-height: 100svh;
+    display: grid;
+    place-items: center;
+}
+
+.invitation-card {
+    position: relative;
+    isolation: isolate;
+    width: 100%;
+    min-height: 100svh;
+    overflow: hidden;
+    padding: 54px 30px 42px;
+    text-align: center;
+    background:
+        linear-gradient(rgba(251, 248, 241, 0.94), rgba(251, 248, 241, 0.96)),
+        repeating-linear-gradient(0deg, rgba(13, 34, 56, 0.025) 0 1px, transparent 1px 4px),
+        var(--paper);
+}
+
+.invitation-card::before,
+.invitation-card::after {
+    content: "";
+    position: absolute;
+    pointer-events: none;
+    z-index: -1;
+}
+
+.invitation-card::before {
+    inset: 14px;
+    border: 1px solid rgba(189, 149, 85, 0.52);
+}
+
+.invitation-card::after {
+    inset: 20px;
+    border: 1px solid rgba(13, 34, 56, 0.17);
+}
+
+.corner {
+    position: absolute;
+    z-index: 2;
+    width: 33px;
+    height: 33px;
+    border-color: var(--gold);
+    pointer-events: none;
+}
+
+.corner-top-left {
+    top: 14px;
+    left: 14px;
+    border-top: 3px solid var(--gold);
+    border-left: 3px solid var(--gold);
+}
+
+.corner-top-right {
+    top: 14px;
+    right: 14px;
+    border-top: 3px solid var(--gold);
+    border-right: 3px solid var(--gold);
+}
+
+.corner-bottom-left {
+    bottom: 14px;
+    left: 14px;
+    border-bottom: 3px solid var(--gold);
+    border-left: 3px solid var(--gold);
+}
+
+.corner-bottom-right {
+    right: 14px;
+    bottom: 14px;
+    border-right: 3px solid var(--gold);
+    border-bottom: 3px solid var(--gold);
+}
+
+.eyebrow,
+.class-year,
+.graduate>p,
+.date-block p,
+.venue-block>p:not(.time),
+.school {
+    margin: 0;
+    font-size: 0.66rem;
+    font-weight: 700;
+    letter-spacing: 0.12em;
+    line-height: 1.7;
+}
+
+.eyebrow {
+    color: var(--gold);
+}
+
+.cap {
+    position: relative;
+    width: 104px;
+    height: 62px;
+    margin: 18px auto 5px;
+}
+
+.cap-top {
+    position: absolute;
+    top: 5px;
+    left: 18px;
+    width: 68px;
+    height: 68px;
+    transform: rotate(45deg) skew(-8deg, -8deg) scaleY(0.5);
+    border-radius: 3px;
+    background: linear-gradient(135deg, #1e4565, #071728 70%);
+    box-shadow: 5px 7px 12px rgba(13, 34, 56, 0.18);
+}
+
+.cap-top::after {
+    content: "";
+    position: absolute;
+    top: 28px;
+    left: 28px;
+    width: 10px;
+    height: 10px;
+    border-radius: 50%;
+    background: var(--gold);
+}
+
+.cap-base {
+    position: absolute;
+    left: 30px;
+    bottom: 3px;
+    width: 49px;
+    height: 25px;
+    border-radius: 0 0 48% 48%;
+    background: linear-gradient(90deg, #102d47, #071727);
+}
+
+.tassel-line {
+    position: absolute;
+    top: 24px;
+    right: 12px;
+    width: 37px;
+    height: 44px;
+    border-right: 2px solid var(--gold);
+    border-radius: 0 0 25px 0;
+    transform: rotate(6deg);
+}
+
+.tassel-knot {
+    position: absolute;
+    right: 4px;
+    bottom: -5px;
+    width: 8px;
+    height: 17px;
+    border-radius: 8px 8px 2px 2px;
+    background: linear-gradient(90deg, #a67d39, #e1c078, #9d7535);
+}
+
+.invitation-header h1 {
+    display: flex;
+    flex-direction: column;
+    margin: 0;
+    color: var(--navy);
+    font-family: var(--font-script), cursive;
+    font-size: clamp(4.3rem, 19vw, 5.2rem);
+    font-weight: 700;
+    letter-spacing: -0.01em;
+    line-height: 0.73;
+    transform: rotate(-2deg);
+}
+
+.invitation-header h1 span.day-text {
+    margin-left: 28%;
+    color: var(--gold);
+    font-size: 0.66em;
+    line-height: 0.9;
+}
+
+.class-year {
+    margin-top: 8px;
+    color: var(--navy-soft);
+}
+
+.ornament {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 9px;
+    margin: 24px auto 17px;
+    color: var(--gold);
+}
+
+.ornament span {
+    width: 44px;
+    height: 1px;
+    background: linear-gradient(to var(--side, right), var(--gold), transparent);
+}
+
+.ornament span:last-child {
+    --side: left;
+}
+
+.ornament i {
+    font-style: normal;
+    font-size: 0.75rem;
+}
+
+.warm-greeting {
+    margin: 0 0 4px;
+    color: var(--muted);
+    font-family: var(--font-serif), serif;
+    font-size: 0.95rem;
+    font-style: italic;
+    letter-spacing: 0.1em;
+}
+
+.guest-name {
+    max-width: 100%;
+    margin: 0 auto 5px;
+    overflow-wrap: anywhere;
+    color: var(--navy);
+    font-family: var(--font-script), cursive;
+    font-size: clamp(2.6rem, 12vw, 3.6rem);
+    font-weight: 700;
+    line-height: 1.16;
+}
+
+.message {
+    margin: 0 auto;
+    color: #4a5568;
+    font-family: var(--font-serif), serif;
+    font-size: 1.02rem;
+    font-style: italic;
+    line-height: 1.6;
+}
+
+.graduate {
+    margin-top: 5px;
+}
+
+.graduate>p {
+    color: var(--muted);
+}
+
+.graduate h2 {
+    margin: 3px 0 7px;
+    color: var(--navy);
+    font-family: var(--font-serif), serif;
+    font-size: clamp(1.85rem, 7vw, 2.3rem);
+    font-weight: 700;
+    letter-spacing: 0.04em;
+}
+
+.graduate .school {
+    color: var(--gold);
+    font-size: 0.9rem;
+    letter-spacing: 0.10em;
+}
+
+.event-details {
+    display: grid;
+    grid-template-columns: 1fr 1px 1fr;
+    align-items: center;
+    gap: 19px;
+    max-width: 360px;
+    margin: 15px auto 0;
+    padding: 22px 0;
+    border-top: 1px solid rgba(189, 149, 85, 0.48);
+    border-bottom: 1px solid rgba(189, 149, 85, 0.48);
+}
+
+.detail-divider {
+    align-self: stretch;
+    background: rgba(189, 149, 85, 0.5);
+}
+
+.date-block,
+.venue-block {
+    min-width: 0;
+}
+
+.date-block p,
+.venue-block>p:not(.time) {
+    color: var(--navy-soft);
+    font-size: 0.56rem;
+    letter-spacing: 0.14em;
+}
+
+.date-block strong {
+    display: block;
+    margin: 2px 0;
+    color: var(--navy);
+    font-family: var(--font-serif), serif;
+    font-size: 3rem;
+    font-weight: 600;
+    line-height: 1;
+}
+
+.venue-block .time {
+    margin: 0 0 5px;
+    color: var(--gold);
+    font-family: var(--font-serif), serif;
+    font-size: 1.65rem;
+    font-weight: 600;
+}
+
+.venue-block address {
+    margin-top: 7px;
+    color: #65717a;
+    font-family: var(--font-serif), serif;
+    font-size: 0.72rem;
+    font-style: normal;
+    line-height: 1.45;
+}
+
+footer {
+    margin-top: 22px;
+}
+
+footer p {
+    margin: 0;
+    color: var(--muted);
+    font-family: var(--font-serif), serif;
+    font-size: 0.88rem;
+    font-style: italic;
+}
+
+.signature {
+    margin-top: 7px;
+    color: var(--gold);
+    font-family: var(--font-script), cursive;
+    font-size: 1.6rem;
+    font-weight: 600;
+}
+
+@media (min-width: 520px) {
+    .invitation-shell {
+        padding: 40px 20px;
+    }
+
+    .invitation-card {
+        width: min(100%, 440px);
+        min-height: 0;
+        padding: 60px 45px 46px;
+        border-radius: 2px;
+        box-shadow:
+            0 24px 70px rgba(19, 28, 36, 0.18),
+            0 3px 10px rgba(19, 28, 36, 0.1);
+    }
+}
+
+@media (max-width: 359px) {
+    .invitation-card {
+        padding-inline: 25px;
+    }
+
+    .event-details {
+        gap: 13px;
+    }
+}
+
+@media (prefers-reduced-motion: no-preference) {
+    .invitation-card {
+        animation: card-appear 700ms cubic-bezier(0.22, 1, 0.36, 1) both;
+    }
+
+    .cap {
+        animation: cap-settle 850ms 180ms cubic-bezier(0.22, 1, 0.36, 1) both;
+    }
+
+    .guest-name {
+        animation: name-appear 700ms 320ms ease-out both;
+    }
+}
+
+@keyframes card-appear {
+    from {
+        opacity: 0;
+        transform: translateY(10px);
+    }
+}
+
+@keyframes cap-settle {
+    from {
+        opacity: 0;
+        transform: translateY(-10px) rotate(-5deg);
+    }
+}
+
+@keyframes name-appear {
+    from {
+        opacity: 0;
+        transform: translateY(7px);
+    }
+}
